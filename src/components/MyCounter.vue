@@ -12,6 +12,11 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 
-const counter = ref(2);
+// Definiendo props con JavaScript
+const props = defineProps({
+    value: { type: Number, required: true },
+})
+
+const counter = ref(props.value);
 const squareCounter = computed(() => counter.value * counter.value);
 </script>
