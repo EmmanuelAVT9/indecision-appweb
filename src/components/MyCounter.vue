@@ -12,10 +12,18 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 
-// Definiendo props con JavaScript
-const props = defineProps({
-    value: { type: Number, required: true },
-})
+// Interfaz para las propiedades, en este caso, solo tiene una propiedad 'value' de tipo número
+interface Props {
+    value: number;
+}
+
+// Define las propiedades del componente sin una interfaz de TypeScript
+/* const props = defineProps<{
+    value: number
+}>(); */
+
+// Define las propiedades del componente usando la interfaz
+const props = defineProps<Props>();
 
 const counter = ref(props.value);
 const squareCounter = computed(() => counter.value * counter.value);
