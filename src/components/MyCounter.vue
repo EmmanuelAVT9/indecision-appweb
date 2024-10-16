@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { useCounter } from '@/composables/useCounter';
 
 // Interfaz para las propiedades, tiene una propiedad 'value' de tipo número y propiedad 'text' de tipo string
 interface Props {
@@ -20,8 +20,12 @@ interface Props {
 // Define las propiedades del componente usando la interfaz
 const props = defineProps<Props>();
 
+const { counter, squareCounter } = useCounter(10);
+
+/* import { computed, ref } from 'vue';
+
 const counter = ref(props.value);
-const squareCounter = computed(() => counter.value * counter.value);
+const squareCounter = computed(() => counter.value * counter.value); */
 </script>
 
 <style scoped>
